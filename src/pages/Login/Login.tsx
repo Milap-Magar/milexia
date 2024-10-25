@@ -6,7 +6,7 @@ const Login = () => {
   const handleGoogleLogin = () => {
     account.createOAuth2Session(
       "google" as OAuthProvider,
-      "http://localhost:5173/success",
+      "http://localhost:5173/",
       "http://localhost:5173/failure"
     );
   };
