@@ -7,6 +7,7 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 Secret/secret.json
+Secret/secret1.json
 
 node_modules
 dist
