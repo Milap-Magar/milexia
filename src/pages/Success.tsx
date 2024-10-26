@@ -4,8 +4,11 @@ const Success = () => {
   const user = useUser();
   return (
     <div>
-      {user ? <p>{user.user}</p> : <p>User is waiting</p>}
-      <h1>Welcome {user.user}Logged in </h1>
+      {user ? (
+        <h1>Welcome {user.user} </h1>
+      ) : (
+        <p>User is waiting</p>
+      )}
     </div>
   );
 };

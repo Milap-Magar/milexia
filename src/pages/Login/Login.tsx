@@ -6,27 +6,39 @@ import { useNavigate } from "react-router-dom";
 
 import { auth, provider } from "../../Backend/Config/config";
 import { useUser } from "../../Context/userContext";
+import { useState } from "react";
+import { Loading } from "../../components";
 
 const Login = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const navigate = useNavigate();
   const { setUser } = useUser();
 
   const handleGoogleLogin = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
-      const email = result.user.email;
+      const { email, displayName } = result.user;
       if (email) {
-        setUser(email); 
+        setUser(displayName);
         localStorage.setItem("email", email);
         navigate("/milexia");
       } else {
-        navigate("/invalid");
+        navigate("/");
       }
     } catch (e) {
       console.error("Error: ", e);
-      navigate("/invalid");
+      navigate("/");
+    } finally {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 2000);
     }
   };
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100">

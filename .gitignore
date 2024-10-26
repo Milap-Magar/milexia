@@ -8,7 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 Secret/secret.json
 Secret/secret1.json
-src/Backend/firebaseConfig.ts
+src/Backend/Config/firebaseConfig.ts
 
 node_modules
 dist
