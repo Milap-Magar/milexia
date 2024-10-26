@@ -1,8 +1,21 @@
 import bg from "../../assets/bg.jpg";
 import { SiGmail } from "react-icons/si";
+import { auth, provider } from "../../Backend/Config/config";
+import { signInWithPopup } from "firebase/auth";
+import { useEffect, useState } from "react";
 
 const Login = () => {
-  const handleGoogleLogin = () => {};
+  const handleGoogleLogin = () => {
+    const [value, setValue] = useState<String>("");
+    signInWithPopup(auth, provider).then((data: any) => {
+      setValue(data.user.email);
+      localStorage.setItem("email", data.user.email);
+    });
+
+    useEffect(() => {
+      setValue(localStorage.getItem("email"));
+    });
+  };
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100">
