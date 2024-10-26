@@ -1,16 +1,19 @@
+import { UserProvider } from "./Context/userContext";
 import { Failure, Login, Success } from "./pages";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App = () => {
   return (
     <>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/success" element={<Success />} />
-          <Route path="/failure" element={<Failure />} />
-        </Routes>
-      </Router>
+      <UserProvider>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/milexia" element={<Success />} />
+            <Route path="/invalid" element={<Failure />} />
+          </Routes>
+        </Router>
+      </UserProvider>
     </>
   );
 };

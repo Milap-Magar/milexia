@@ -1,20 +1,31 @@
 import bg from "../../assets/bg.jpg";
 import { SiGmail } from "react-icons/si";
-import { auth, provider } from "../../Backend/Config/config";
+
 import { signInWithPopup } from "firebase/auth";
-import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { auth, provider } from "../../Backend/Config/config";
+import { useUser } from "../../Context/userContext";
 
 const Login = () => {
-  const handleGoogleLogin = () => {
-    const [value, setValue] = useState<String>("");
-    signInWithPopup(auth, provider).then((data: any) => {
-      setValue(data.user.email);
-      localStorage.setItem("email", data.user.email);
-    });
+  const navigate = useNavigate();
+  const { setUser } = useUser();
 
-    useEffect(() => {
-      setValue(localStorage.getItem("email"));
-    });
+  const handleGoogleLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const email = result.user.email;
+      if (email) {
+        setUser(email); 
+        localStorage.setItem("email", email);
+        navigate("/milexia");
+      } else {
+        navigate("/invalid");
+      }
+    } catch (e) {
+      console.error("Error: ", e);
+      navigate("/invalid");
+    }
   };
 
   return (
@@ -43,7 +54,6 @@ const Login = () => {
             <SiGmail className="ml-2 text-yellow-500" />
           </button>
 
-          {/* Divider */}
           <div className="flex items-center justify-center space-x-2">
             <hr className="w-1/3 border-gray-300" />
             <p className="text-sm text-gray-400">OR</p>
