@@ -1,19 +1,12 @@
-import { OAuthProvider } from "appwrite";
-import { account } from "../../service/appwrite";
 import bg from "../../assets/bg.jpg";
+import { SiGmail } from "react-icons/si";
 
 const Login = () => {
-  const handleGoogleLogin = () => {
-    account.createOAuth2Session(
-      "google" as OAuthProvider,
-      "http://localhost:5173/",
-      "http://localhost:5173/failure"
-    );
-  };
+  const handleGoogleLogin = () => {};
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100">
-      <div className="flex flex-col-reverse md:flex-row w-full max-w-4xl shadow-lg bg-white rounded-lg overflow-hidden">
+      <div className="flex flex-col-reverse md:flex-row w-full max-w-4xl shadow-lg shadow-red-500 bg-white rounded-lg overflow-hidden ">
         <div className="hidden md:block md:w-1/2">
           <img
             src={bg}
@@ -31,9 +24,10 @@ const Login = () => {
 
           <button
             onClick={handleGoogleLogin}
-            className="w-full py-2 px-4 bg-red-500 text-white rounded-lg font-bold shadow-md hover:bg-red-600 transition-colors animate-pulse"
+            className="w-full py-2 px-4 bg-red-500 text-white rounded-lg font-bold shadow-md hover:bg-red-600 transition-colors animate-pulse flex items-center justify-center"
           >
             Login with Google
+            <SiGmail className="ml-2 text-yellow-500" />
           </button>
 
           {/* Divider */}
