@@ -2,9 +2,9 @@ import Textbar from "./Textbar";
 
 const Main = () => {
   return (
-    <div>
+    <main>
       <Textbar />
-    </div>
+    </main>
   );
 };
 
