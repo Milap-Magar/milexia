@@ -12,7 +12,7 @@ export const Logout = () => {
       await signOut(auth);
       setUser(null);
       localStorage.removeItem("email");
-      navigate("/login");
+      navigate("/");
     } catch (e) {
       console.error("Error signing out: ", e);
     }

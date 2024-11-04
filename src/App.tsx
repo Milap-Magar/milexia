@@ -1,5 +1,7 @@
 import { UserProvider } from "./Context/userContext";
-import { Failure, Login, Success } from "./pages";
+import Failed from "./pages/Failure/Failed.page.jsx";
+
+import { Login, Success } from "./pages";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App = () => {
@@ -10,7 +12,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/milexia" element={<Success />} />
-            <Route path="/invalid" element={<Failure />} />
+            <Route path="/invalid" element={<Failed />} />
           </Routes>
         </Router>
       </UserProvider>
