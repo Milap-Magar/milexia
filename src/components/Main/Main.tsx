@@ -4,6 +4,7 @@ import { FaLightbulb, FaRegLightbulb } from "react-icons/fa6";
 import { useTheme } from "../../Context/ThemeContext";
 import { useAuth } from "../../Context/useAuth";
 import TypingEffect from "../Dashboard/TypingEffect";
+import FadeInButton from "../Dashboard/FadeInButton";
 
 const Main: React.FC = () => {
   const { isDark, toggleTheme } = useTheme();
@@ -18,7 +19,12 @@ const Main: React.FC = () => {
         </button>
         <TypingEffect text="WELLCOME TO MILEXIA" speed={200} />{" "}
         {user ? (
-          <h1 className="text-xl">Hiee, {user.displayName || "User"}!</h1>
+          <div>
+            <h1 className="text-xl">Hiee, {user.displayName || "User"}!</h1>
+            <div className="mt-3">
+              <FadeInButton>Continue</FadeInButton>
+            </div>
+          </div>
         ) : (
           <h1 className="text-2xl">Welcome, Guest</h1>
         )}
