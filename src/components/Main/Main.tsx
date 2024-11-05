@@ -5,10 +5,17 @@ import { useTheme } from "../../Context/ThemeContext";
 import { useAuth } from "../../Context/useAuth";
 import TypingEffect from "../Dashboard/TypingEffect";
 import FadeInButton from "../Dashboard/FadeInButton";
+import { Logout } from "../../pages/Login/Logout";
+import { useNavigate } from "react-router-dom";
 
 const Main: React.FC = () => {
   const { isDark, toggleTheme } = useTheme();
   const user = useAuth();
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate("/milexia/home");
+  };
 
   return (
     <main className="relative bg-white text-black dark:bg-gray-900 dark:text-white min-h-screen flex items-center justify-center">
@@ -21,7 +28,7 @@ const Main: React.FC = () => {
         {user ? (
           <div>
             <h1 className="text-xl">Hiee, {user.displayName || "User"}!</h1>
-            <div className="mt-3">
+            <div className="mt-3" onClick={handleNavigate}>
               <FadeInButton>Continue</FadeInButton>
             </div>
           </div>
@@ -29,6 +36,7 @@ const Main: React.FC = () => {
           <h1 className="text-2xl">Welcome, Guest</h1>
         )}
       </div>
+      <Logout />
     </main>
   );
 };

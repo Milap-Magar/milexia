@@ -5,6 +5,7 @@ import { Login, Success } from "./pages";
 import { ThemeProvider } from "./Context/ThemeContext.js";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Dashboard } from "./components/Dashboard/Dashboard.js";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/milexia" element={<Success />} />
+            <Route path="/milexia/home" element={<Dashboard />} />
             <Route path="/invalid" element={<Failed />} />
           </Routes>
         </Router>
