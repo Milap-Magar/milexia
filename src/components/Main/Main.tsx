@@ -1,12 +1,15 @@
 import React from "react";
 import "../index.css";
+
 import { FaLightbulb, FaRegLightbulb } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
+
 import { useTheme } from "../../Context/ThemeContext";
 import { useAuth } from "../../Context/useAuth";
+import { Logout } from "../../pages/Login/Logout";
+
 import TypingEffect from "../Dashboard/TypingEffect";
 import FadeInButton from "../Dashboard/FadeInButton";
-import { Logout } from "../../pages/Login/Logout";
-import { useNavigate } from "react-router-dom";
 
 const Main: React.FC = () => {
   const { isDark, toggleTheme } = useTheme();
