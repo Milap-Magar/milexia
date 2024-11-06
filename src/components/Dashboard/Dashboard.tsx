@@ -1,6 +1,7 @@
 import React from "react";
 import { useTheme } from "../../Context/ThemeContext";
 import { FaLightbulb, FaRegLightbulb } from "react-icons/fa6";
+import { IoSend, IoSendOutline } from "react-icons/io5";
 
 export const Dashboard: React.FC = () => {
   const { isDark, toggleTheme } = useTheme();
@@ -64,12 +65,14 @@ export const Dashboard: React.FC = () => {
             </div>
 
             {/* Input Section */}
-            <div className="border-t border-gray-300 dark:border-gray-700 pt-4">
-              <input
-                type="text"
-                className="w-full p-3 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none"
+            <div className=" flex items-center gap-5 border-t border-gray-300 dark:border-gray-700 pt-4 cursor-pointer">
+              <textarea
+                className="w-full p-3 h-20 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none resize-none"
                 placeholder="Type your message..."
               />
+              <span className="text-gray-200 bg-slate-700 dark:bg-slate-200 dark:text-gray-800 rounded-[100%] p-2 flex justify-center items-center">
+                {isDark ? <IoSend size={24} /> : <IoSendOutline size={24} />}
+              </span>
             </div>
           </div>
         </section>
