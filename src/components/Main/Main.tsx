@@ -38,8 +38,8 @@ const Main: React.FC = () => {
         ) : (
           <h1 className="text-2xl">Welcome, Guest</h1>
         )}
+        <Logout />
       </div>
-      <Logout />
     </main>
   );
 };
