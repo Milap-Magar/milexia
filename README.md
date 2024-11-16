@@ -1,6 +1,6 @@
 ![Login Page](./src//assets//login.png)
 
-# React + TypeScript + Vite
+# React + TypeScript + Vite + NODEJS along with other libraries
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

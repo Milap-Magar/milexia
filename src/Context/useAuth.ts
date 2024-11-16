@@ -1,4 +1,3 @@
-// src/Context/useAuth.ts
 import { useState, useEffect } from "react";
 import { auth } from "../Backend/Config/config";
 import { onAuthStateChanged } from "firebase/auth";
